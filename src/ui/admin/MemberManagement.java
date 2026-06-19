@@ -170,6 +170,9 @@ public class MemberManagement extends javax.swing.JFrame {
         getContentPane().add(jSeparator3);
         jSeparator3.setBounds(0, 350, 900, 10);
 
+        tblMembers.setBackground(new java.awt.Color(47, 128, 237));
+        tblMembers.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tblMembers.setForeground(new java.awt.Color(255, 255, 255));
         tblMembers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -178,7 +181,7 @@ public class MemberManagement extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "NAME", "EMAIL", "POSITION"
             }
         ));
         jScrollPane1.setViewportView(tblMembers);

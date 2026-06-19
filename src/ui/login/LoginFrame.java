@@ -39,9 +39,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        tagline = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,6 +48,9 @@ public class LoginFrame extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        tagline = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -58,24 +59,12 @@ public class LoginFrame extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(224, 224, 224)));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(47, 128, 237));
-        jLabel1.setText("ClubHub Login");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(310, 280, 200, 38);
-
-        tagline.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tagline.setForeground(new java.awt.Color(102, 102, 102));
-        tagline.setText("Manage your club efficiently");
-        jPanel1.add(tagline);
-        tagline.setBounds(320, 320, 210, 20);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/argentina.png"))); // NOI18N
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(300, 360, 250, 260);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Gemini_Generated_Image_f9olygf9olygf9ol.png"))); // NOI18N
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(-30, 0, 550, 870);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1000, 870);
+        jPanel1.setBounds(0, 0, 520, 870);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(224, 224, 224), 2));
@@ -85,30 +74,28 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(47, 128, 237));
         jLabel5.setText("Login to Your Account");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(150, 180, 310, 40);
+        jLabel5.setBounds(290, 430, 310, 40);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel2.setText("Username");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(50, 250, 100, 38);
+        jLabel2.setBounds(290, 490, 100, 38);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setText("Password");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(50, 350, 100, 38);
+        jLabel3.setBounds(290, 590, 100, 38);
 
         txtUsername.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        txtUsername.setText("Enter your username..");
         txtUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtUsername.addActionListener(this::txtUsernameActionPerformed);
         jPanel2.add(txtUsername);
-        txtUsername.setBounds(150, 250, 350, 38);
+        txtUsername.setBounds(390, 490, 350, 38);
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPassword.setText("Enter your password...");
         txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jPanel2.add(txtPassword);
-        txtPassword.setBounds(150, 350, 350, 38);
+        txtPassword.setBounds(390, 590, 350, 38);
 
         btnLogin.setBackground(new java.awt.Color(47, 128, 237));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -117,15 +104,31 @@ public class LoginFrame extends javax.swing.JFrame {
         btnLogin.setRequestFocusEnabled(false);
         btnLogin.addActionListener(this::btnLoginActionPerformed);
         jPanel2.add(btnLogin);
-        btnLogin.setBounds(150, 430, 350, 42);
+        btnLogin.setBounds(390, 670, 350, 42);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 16)); // NOI18N
         jLabel7.setText("Forgot Password?");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(270, 470, 140, 22);
+        jLabel7.setBounds(510, 710, 140, 22);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(47, 128, 237));
+        jLabel1.setText("ClubHub Login");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(430, 80, 200, 38);
+
+        tagline.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tagline.setForeground(new java.awt.Color(102, 102, 102));
+        tagline.setText("Manage your club efficiently");
+        jPanel2.add(tagline);
+        tagline.setBounds(430, 120, 210, 20);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Gemini_Generated_Image_gntjs5gntjs5gntj.png"))); // NOI18N
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(410, 150, 250, 260);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(1000, 0, 540, 870);
+        jPanel2.setBounds(520, 0, 1020, 870);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -176,6 +179,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
