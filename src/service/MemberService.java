@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package service;
 
-/**
- *
- * @author Acer
- */
+import dao.MemberDAO;
+import model.Member;
+
 public class MemberService {
-    
+
+    private MemberDAO memberDAO = new MemberDAO();
+
+    public boolean addMember(Member member) {
+
+        return memberDAO.addMember(member);
+
+    }
+
 }

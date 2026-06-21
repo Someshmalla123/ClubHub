@@ -22,7 +22,21 @@ public class AdminDashboard extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
          lblWelcome.setText("Welcome, " + username + "!");
+         showPanel(new DashboardPanel());
     }
+    
+     private void showPanel(javax.swing.JPanel panel) {
+
+    contentPanel.removeAll();
+
+    contentPanel.setLayout(new java.awt.BorderLayout());
+
+    contentPanel.add(panel, java.awt.BorderLayout.CENTER);
+
+    contentPanel.revalidate();
+
+    contentPanel.repaint();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,12 +49,12 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         lblWelcome = new javax.swing.JLabel();
         sidepanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        contentpanel = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        contentPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,64 +74,70 @@ public class AdminDashboard extends javax.swing.JFrame {
         sidepanel.setBackground(new java.awt.Color(47, 128, 237));
         sidepanel.setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel1.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home-button.png"))); // NOI18N
-        jLabel1.setText("Dashboard");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jLabel1.setIconTextGap(80);
-        sidepanel.add(jLabel1);
-        jLabel1.setBounds(0, 60, 320, 50);
-
         jButton4.setBackground(new java.awt.Color(47, 128, 237));
         jButton4.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.png"))); // NOI18N
         jButton4.setText("LogOut");
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton4.setIconTextGap(85);
+        jButton4.setIconTextGap(40);
         sidepanel.add(jButton4);
-        jButton4.setBounds(0, 480, 320, 50);
+        jButton4.setBounds(0, 480, 240, 50);
 
         jButton3.setBackground(new java.awt.Color(47, 128, 237));
         jButton3.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business-report.png"))); // NOI18N
-        jButton3.setText("Reports");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home-button.png"))); // NOI18N
+        jButton3.setText("Dashboard");
+        jButton3.setBorder(null);
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton3.setIconTextGap(85);
+        jButton3.setIconTextGap(40);
+        jButton3.addActionListener(this::jButton3ActionPerformed);
         sidepanel.add(jButton3);
-        jButton3.setBounds(0, 210, 320, 50);
+        jButton3.setBounds(10, 60, 230, 50);
 
         jButton2.setBackground(new java.awt.Color(47, 128, 237));
         jButton2.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/calendar (1).png"))); // NOI18N
         jButton2.setText("Events");
+        jButton2.setBorder(null);
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton2.setIconTextGap(90);
+        jButton2.setIconTextGap(40);
         sidepanel.add(jButton2);
-        jButton2.setBounds(0, 160, 320, 50);
+        jButton2.setBounds(10, 160, 230, 50);
 
         jButton1.setBackground(new java.awt.Color(47, 128, 237));
         jButton1.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user (2).png"))); // NOI18N
         jButton1.setText("Members");
+        jButton1.setBorder(null);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton1.setIconTextGap(80);
+        jButton1.setIconTextGap(40);
         jButton1.addActionListener(this::jButton1ActionPerformed);
         sidepanel.add(jButton1);
-        jButton1.setBounds(0, 110, 320, 50);
+        jButton1.setBounds(10, 110, 230, 50);
+
+        jButton5.setBackground(new java.awt.Color(47, 128, 237));
+        jButton5.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business-report.png"))); // NOI18N
+        jButton5.setText("Reports");
+        jButton5.setBorder(null);
+        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton5.setIconTextGap(30);
+        sidepanel.add(jButton5);
+        jButton5.setBounds(20, 210, 220, 50);
 
         getContentPane().add(sidepanel);
-        sidepanel.setBounds(0, 70, 320, 530);
+        sidepanel.setBounds(0, 70, 240, 530);
 
-        contentpanel.setBackground(new java.awt.Color(255, 255, 255));
-        contentpanel.setLayout(null);
-        getContentPane().add(contentpanel);
-        contentpanel.setBounds(320, 70, 580, 530);
+        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        contentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 229, 229)));
+        contentPanel.setLayout(null);
+        getContentPane().add(contentPanel);
+        contentPanel.setBounds(240, 70, 660, 530);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo small.png"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -146,10 +166,14 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MemberManagement memberPage = new MemberManagement();
-        memberPage.setVisible(true);
-        this.dispose();
+        
+        showPanel(new MemberPanel());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         showPanel(new DashboardPanel());
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,12 +204,12 @@ public class AdminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel contentpanel;
+    private javax.swing.JPanel contentPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
