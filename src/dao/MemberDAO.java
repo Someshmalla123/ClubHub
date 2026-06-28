@@ -144,4 +144,31 @@ public class MemberDAO {
         return false;
     }
 }
+   
+    public boolean deleteMember(int memberId) {
+
+    String sql = "DELETE FROM members WHERE member_id = ?";
+
+    try {
+
+        Connection conn = DBConnection.getConnection();
+
+        PreparedStatement pst = conn.prepareStatement(sql);
+
+        pst.setInt(1, memberId);
+
+        int rowsDeleted = pst.executeUpdate();
+
+        conn.close();
+
+        return rowsDeleted > 0;
+
+    } catch (Exception e) {
+
+        System.out.println("Delete Error: " + e.getMessage());
+
+        return false;
+    }
+}
+    
 }

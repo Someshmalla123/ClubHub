@@ -252,6 +252,40 @@ public class MemberPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+         if (selectedMemberId == -1) {
+        JOptionPane.showMessageDialog(this,
+                "Please select a member first.");
+        return;
+    }
+
+    int choice = JOptionPane.showConfirmDialog(
+            this,
+            "Are you sure you want to delete this member?",
+            "Confirm Delete",
+            JOptionPane.YES_NO_OPTION
+    );
+
+    if (choice == JOptionPane.YES_OPTION) {
+
+        MemberService service = new MemberService();
+
+        String result = service.deleteMember(selectedMemberId);
+
+        if (result.equals("SUCCESS")) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Member deleted successfully!");
+
+            clearFields();
+
+            loadMemberTable();
+
+        } else {
+
+            JOptionPane.showMessageDialog(this, result);
+
+        }
+    }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

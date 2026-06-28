@@ -34,4 +34,14 @@ public class MemberService {
 
     return "Failed to update member.";
 }
+    
+    public String deleteMember(int memberId) {
+
+    if (memberDAO.deleteMember(memberId)) {
+        return "SUCCESS";
+    }
+
+    return "Failed to delete member.";
+}
+    
 }
