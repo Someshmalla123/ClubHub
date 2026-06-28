@@ -8,6 +8,9 @@ package ui.admin;
  *
  * @author Acer
  */
+import model.Member;
+import service.MemberService;
+import javax.swing.JOptionPane;
 public class MemberPanel extends javax.swing.JPanel {
 
     /**
@@ -15,7 +18,20 @@ public class MemberPanel extends javax.swing.JPanel {
      */
     public MemberPanel() {
         initComponents();
+        
     }
+    private void clearFields() {
+
+    txtFullName.setText("");
+    txtEmail.setText("");
+    txtPhone.setText("");
+    txtPosition.setText("");
+    txtUsername.setText("");
+    txtPassword.setText("");
+
+    txtFullName.requestFocus();
+
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -140,6 +156,7 @@ public class MemberPanel extends javax.swing.JPanel {
         btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("ADD");
+        btnAdd.addActionListener(this::btnAddActionPerformed);
         add(btnAdd);
         btnAdd.setBounds(130, 250, 72, 23);
 
@@ -148,18 +165,20 @@ public class MemberPanel extends javax.swing.JPanel {
         add(jLabel8);
         jLabel8.setBounds(30, 300, 50, 20);
         add(jTextField1);
-        jTextField1.setBounds(30, 320, 190, 22);
+        jTextField1.setBounds(30, 320, 190, 30);
 
         btnClear.setBackground(new java.awt.Color(47, 128, 237));
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("CLEAR");
+        btnClear.addActionListener(this::btnClearActionPerformed);
         add(btnClear);
         btnClear.setBounds(410, 250, 72, 23);
 
-        btnSearch.setText("jButton6");
+        btnSearch.setBackground(new java.awt.Color(47, 128, 237));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search (1).png"))); // NOI18N
         add(btnSearch);
-        btnSearch.setBounds(230, 320, 75, 23);
+        btnSearch.setBounds(230, 320, 30, 30);
         add(jSeparator1);
         jSeparator1.setBounds(10, 40, 640, 10);
         add(jSeparator2);
@@ -194,6 +213,50 @@ public class MemberPanel extends javax.swing.JPanel {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+         if (txtFullName.getText().trim().isEmpty()
+            || txtEmail.getText().trim().isEmpty()
+            || txtUsername.getText().trim().isEmpty()
+            || txtPassword.getPassword().length == 0) {
+
+        JOptionPane.showMessageDialog(this,
+                "Please fill in all required fields.");
+
+        return;   // Stop here if validation fails
+    }
+         Member member = new Member();
+
+    member.setFullName(txtFullName.getText());
+    member.setEmail(txtEmail.getText());
+    member.setPhone(txtPhone.getText());
+    member.setPosition(txtPosition.getText());
+    member.setUsername(txtUsername.getText());
+    member.setPassword(String.valueOf(txtPassword.getPassword()));
+
+   MemberService service = new MemberService();
+
+String result = service.addMember(member);
+
+if (result.equals("SUCCESS")) {
+
+    JOptionPane.showMessageDialog(this, "Member added successfully!");
+
+    clearFields();
+
+} else {
+
+    JOptionPane.showMessageDialog(this, result);
+
+}
+   
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+         clearFields();
+    }//GEN-LAST:event_btnClearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
