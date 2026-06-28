@@ -26,4 +26,12 @@ public class MemberService {
     return memberDAO.getAllMembers();
 
 }
+    public String updateMember(Member member) {
+
+    if (memberDAO.updateMember(member)) {
+        return "SUCCESS";
+    }
+
+    return "Failed to update member.";
+}
 }

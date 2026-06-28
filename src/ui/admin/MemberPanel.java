@@ -256,6 +256,35 @@ public class MemberPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+          Member member = new Member();
+
+    member.setMemberId(selectedMemberId);
+
+    member.setFullName(txtFullName.getText());
+    member.setEmail(txtEmail.getText());
+    member.setPhone(txtPhone.getText());
+    member.setPosition(txtPosition.getText());
+    member.setUsername(txtUsername.getText());
+    member.setPassword(String.valueOf(txtPassword.getPassword()));
+
+    MemberService service = new MemberService();
+
+    String result = service.updateMember(member);
+
+    if(result.equals("SUCCESS")){
+
+        JOptionPane.showMessageDialog(this,
+                "Member updated successfully!");
+
+        clearFields();
+
+        loadMemberTable();
+
+    }else{
+
+        JOptionPane.showMessageDialog(this, result);
+
+    }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed

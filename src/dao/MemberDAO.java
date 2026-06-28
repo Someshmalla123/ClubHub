@@ -112,4 +112,36 @@ public class MemberDAO {
     return memberList;
 
 }
+    
+    public boolean updateMember(Member member) {
+
+    String sql = "UPDATE members SET full_name=?, email=?, phone=?, position=?, username=?, password=? WHERE member_id=?";
+
+    try {
+
+        Connection conn = DBConnection.getConnection();
+
+        PreparedStatement pst = conn.prepareStatement(sql);
+
+        pst.setString(1, member.getFullName());
+        pst.setString(2, member.getEmail());
+        pst.setString(3, member.getPhone());
+        pst.setString(4, member.getPosition());
+        pst.setString(5, member.getUsername());
+        pst.setString(6, member.getPassword());
+        pst.setInt(7, member.getMemberId());
+
+        int rowsUpdated = pst.executeUpdate();
+
+        conn.close();
+
+        return rowsUpdated > 0;
+
+    } catch (Exception e) {
+
+        System.out.println("Update Error: " + e.getMessage());
+
+        return false;
+    }
+}
 }
