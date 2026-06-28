@@ -372,9 +372,9 @@
               <Table columnCount="6" rowCount="4">
                 <Column editable="true" title="ID" type="java.lang.Object"/>
                 <Column editable="true" title="Full Name" type="java.lang.Object"/>
-                <Column editable="true" title="Position" type="java.lang.Object"/>
-                <Column editable="true" title="Phone" type="java.lang.Object"/>
                 <Column editable="true" title="Email" type="java.lang.Object"/>
+                <Column editable="true" title="Phone" type="java.lang.Object"/>
+                <Column editable="true" title="Position" type="java.lang.Object"/>
                 <Column editable="true" title="Username" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -388,6 +388,9 @@
               <Color blue="ed" green="80" red="2f" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblMembersMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

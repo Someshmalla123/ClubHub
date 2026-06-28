@@ -19,9 +19,12 @@ public class MemberPanel extends javax.swing.JPanel {
     /**
      * Creates new form MemberPanel
      */
+    private int selectedMemberId = -1;
     public MemberPanel() {
         initComponents();
         loadMemberTable();
+         btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
         
     }
     
@@ -58,6 +61,12 @@ public class MemberPanel extends javax.swing.JPanel {
     txtPosition.setText("");
     txtUsername.setText("");
     txtPassword.setText("");
+
+    selectedMemberId = -1;
+
+    btnAdd.setEnabled(true);
+    btnUpdate.setEnabled(false);
+    btnDelete.setEnabled(false);
 
     txtFullName.requestFocus();
 
@@ -224,12 +233,17 @@ public class MemberPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Full Name", "Position", "Phone", "Email", "Username"
+                "ID", "Full Name", "Email", "Phone", "Position", "Username"
             }
         ));
         tblMembers.setGridColor(new java.awt.Color(255, 255, 255));
         tblMembers.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tblMembers.setSelectionForeground(new java.awt.Color(47, 128, 237));
+        tblMembers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblMembersMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblMembers);
 
         add(jScrollPane1);
@@ -288,6 +302,33 @@ if (result.equals("SUCCESS")) {
         // TODO add your handling code here:
          clearFields();
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void tblMembersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMembersMouseClicked
+        // TODO add your handling code here:
+         int row = tblMembers.getSelectedRow();
+
+    selectedMemberId = Integer.parseInt(
+            tblMembers.getValueAt(row, 0).toString());
+
+    txtFullName.setText(
+            tblMembers.getValueAt(row, 1).toString());
+
+    txtEmail.setText(
+            tblMembers.getValueAt(row, 2).toString());
+
+    txtPhone.setText(
+            tblMembers.getValueAt(row, 3).toString());
+
+    txtPosition.setText(
+            tblMembers.getValueAt(row, 4).toString());
+
+    txtUsername.setText(
+            tblMembers.getValueAt(row, 5).toString());
+    
+            btnAdd.setEnabled(false);
+            btnUpdate.setEnabled(true);
+            btnDelete.setEnabled(true);
+    }//GEN-LAST:event_tblMembersMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
