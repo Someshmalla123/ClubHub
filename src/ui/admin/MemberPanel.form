@@ -373,9 +373,9 @@
                 <Column editable="true" title="ID" type="java.lang.Object"/>
                 <Column editable="true" title="Full Name" type="java.lang.Object"/>
                 <Column editable="true" title="Position" type="java.lang.Object"/>
-                <Column editable="true" title="Username" type="java.lang.Object"/>
-                <Column editable="true" title="Email" type="java.lang.Object"/>
                 <Column editable="true" title="Phone" type="java.lang.Object"/>
+                <Column editable="true" title="Email" type="java.lang.Object"/>
+                <Column editable="true" title="Username" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

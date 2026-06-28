@@ -8,9 +8,12 @@ package ui.admin;
  *
  * @author Acer
  */
+
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 import model.Member;
 import service.MemberService;
-import javax.swing.JOptionPane;
 public class MemberPanel extends javax.swing.JPanel {
 
     /**
@@ -18,8 +21,35 @@ public class MemberPanel extends javax.swing.JPanel {
      */
     public MemberPanel() {
         initComponents();
+        loadMemberTable();
         
     }
+    
+    private void loadMemberTable() {
+
+    MemberService service = new MemberService();
+
+    ArrayList<Member> memberList = service.getAllMembers();
+
+    DefaultTableModel model = (DefaultTableModel) tblMembers.getModel();
+
+    model.setRowCount(0);
+
+    for (Member member : memberList) {
+
+        model.addRow(new Object[]{
+            member.getMemberId(),
+            member.getFullName(),
+            member.getEmail(),
+            member.getPhone(),
+            member.getPosition(),
+            member.getUsername()
+        });
+
+    }
+
+}
+    
     private void clearFields() {
 
     txtFullName.setText("");
@@ -194,7 +224,7 @@ public class MemberPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Full Name", "Position", "Username", "Email", "Phone"
+                "ID", "Full Name", "Position", "Phone", "Email", "Username"
             }
         ));
         tblMembers.setGridColor(new java.awt.Color(255, 255, 255));
@@ -244,6 +274,7 @@ if (result.equals("SUCCESS")) {
     JOptionPane.showMessageDialog(this, "Member added successfully!");
 
     clearFields();
+      loadMemberTable();
 
 } else {
 
